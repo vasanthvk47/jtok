@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: animated-login-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: animated-login
+  template:
+    metadata:
+      labels:
+        app: animated-login
+    spec:
+      containers:
+      - name: animated-login
+        image: animated-login-app
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
